@@ -1,0 +1,93 @@
+CODE DEPLOYMENT PROCEDURES
+
+ENVIRONMENTS:
+
+1. DEVELOPMENT (dev.company.com)
+- Purpose: Active development and testing
+- Deployment: Automatic on git push to 'dev' branch
+- Access: All engineers
+- Data: Synthetic test data only
+
+2. STAGING (staging.company.com)
+- Purpose: Pre-production testing and QA
+- Deployment: Manual, requires PR approval
+- Access: Engineers, QA team, Product managers
+- Data: Anonymized production data copy
+
+3. PRODUCTION (company.com)
+- Purpose: Live customer-facing environment
+- Deployment: Manual, requires multiple approvals
+- Access: Senior engineers, DevOps team
+- Data: Real customer data (GDPR compliant)
+
+DEPLOYMENT PROCESS:
+
+STEP 1: CODE REVIEW
+- Create pull request (PR) on GitHub
+- Minimum 2 code reviews required
+- All CI/CD checks must pass
+- Security scan must show no critical issues
+
+STEP 2: STAGING DEPLOYMENT
+- Merge PR to 'staging' branch
+- Automatic deployment via Jenkins
+- Run smoke tests and integration tests
+- QA team performs manual testing
+
+STEP 3: PRODUCTION DEPLOYMENT
+- Requires approval from:
+  * Tech Lead
+  * Engineering Manager
+  * DevOps Engineer
+- Scheduled during maintenance window (Tuesdays 2-4 AM EST)
+- Zero-downtime deployment using blue-green strategy
+
+STEP 4: POST-DEPLOYMENT
+- Monitor logs for errors (first 30 minutes critical)
+- Check application performance metrics
+- Verify customer-facing features
+- Rollback plan ready if issues detected
+
+ROLLBACK PROCEDURE:
+1. Alert #engineering-alerts Slack channel
+2. DevOps initiates rollback (previous version restored)
+3. Post-mortem scheduled within 24 hours
+4. Root cause analysis documented
+
+DEPLOYMENT SCHEDULE:
+- Deployments allowed: Mon-Thu (no Fridays!)
+- Maintenance window: Tuesdays 2-4 AM EST
+- Emergency hotfixes: Anytime with VP approval
+
+BRANCHING STRATEGY:
+- main: Production code
+- staging: Pre-production testing
+- dev: Active development
+- feature/*: New features
+- bugfix/*: Bug fixes
+- hotfix/*: Emergency production fixes
+
+CI/CD PIPELINE:
+1. Lint and code style checks
+2. Unit tests (must have >80% coverage)
+3. Integration tests
+4. Security vulnerability scan
+5. Build Docker image
+6. Deploy to environment
+
+MONITORING:
+- Application: Datadog APM
+- Logs: ELK Stack (Elasticsearch, Logstash, Kibana)
+- Alerts: PagerDuty
+- Uptime: StatusPage.io
+
+REQUIRED DOCUMENTATION:
+- Deployment checklist completed
+- Change management ticket filed
+- Database migration plan (if applicable)
+- Feature flags configured (if applicable)
+
+CONTACT:
+- DevOps Team: devops@company.com
+- Engineering Manager: engineering@company.com
+- Emergency: Slack #engineering-urgent

@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Virtual environment
+.venv/
+
+# Streamlit
+.streamlit/
+
+# Logs & runtime
+logs/
+*.log
+chat_log.csv
+chat_log.jsonl
+
+# Vector DB
+db/
+
+# Models
+models/
+
+# Secrets
+.env
+google_credentials.json
+config.yaml
+
+
+# Temp / misc
+run.txt
+SETUP.txt
+CLIENT_HANDOVER_CHECKLIST.md
+
+# OS
+.DS_Store
+Thumbs.db

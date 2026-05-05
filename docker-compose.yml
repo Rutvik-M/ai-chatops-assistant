@@ -1,0 +1,84 @@
+services:
+  # Main ChatOps Assistant Application
+  chatops-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-chatops-assistant
+    ports:
+      - "8501:8501"  # Streamlit app
+    volumes:
+      # Mount knowledge base for easy updates
+      - ./knowledge_base:/app/knowledge_base:ro
+      # Mount database for persistence
+      - ./db:/app/db
+      # Mount logs for analytics
+      - ./logs:/app/logs
+      # Mount config
+      - ./config.yaml:/app/config.yaml:ro
+      # Mount models directory
+      - ./models:/app/models
+      # Mount HuggingFace cache for models
+      - huggingface-cache:/root/.cache/huggingface
+    environment:
+      - PYTHONUNBUFFERED=1
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+    deploy:
+      resources:
+        limits:
+          memory: 12G
+          cpus: '4'
+        reservations:
+          memory: 6G
+          cpus: '2'
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - chatops-network
+
+  # Analytics Dashboard (optional)
+  analytics-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-chatops-analytics
+    ports:
+      - "8502:8502"
+    volumes:
+      - ./logs:/app/logs:ro
+      - ./chat_log.csv:/app/chat_log.csv:ro
+      - ./chat_log.jsonl:/app/chat_log.jsonl:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_SERVER_PORT=8502
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '2'
+        reservations:
+          memory: 1G
+          cpus: '1'
+    command: ["streamlit", "run", "analytics_enhanced.py", "--server.port=8502", "--server.address=0.0.0.0"]
+    restart: unless-stopped
+    networks:
+      - chatops-network
+    depends_on:
+      - chatops-app
+
+volumes:
+  huggingface-cache:
+    driver: local
+
+networks:
+  chatops-network:
+    driver: bridge

@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+docs/
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Database (will be mounted as volume)
+db/
+*.db
+*.sqlite
+
+# Chat logs (will be mounted)
+chat_log.csv
+chat_log.jsonl
+reindex_state.json
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+query.txt
+run.txt 
+config.txt
+create_kb_files.py
+create_test_pdf.py
+app_backup.py
+app_ui.py
+google_credentials.json
+google_credentials.txt

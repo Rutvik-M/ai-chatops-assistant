@@ -1,0 +1,79 @@
+IT SUPPORT GUIDELINES AND TROUBLESHOOTING
+
+COMMON ISSUES AND SOLUTIONS:
+
+1. VPN CONNECTION ISSUES
+Problem: Cannot connect to company VPN
+Solutions:
+- Verify internet connection is active
+- Restart VPN client application
+- Check VPN credentials (username: firstname.lastname)
+- Try alternate VPN server from dropdown
+- Contact IT if issue persists: it@company.com
+
+VPN Server Addresses:
+- Primary: vpn.company.com
+- Backup: vpn2.company.com
+- Asia region: vpn-asia.company.com
+
+2. PASSWORD RESET
+- Self-service: portal.company.com/reset
+- Phone: Call IT helpdesk at ext. 5000
+- Email locked out: Use personal email to request reset
+- Expires every 90 days (notification sent 7 days prior)
+
+Password Requirements:
+- Minimum 12 characters
+- At least 1 uppercase, 1 lowercase, 1 number, 1 special character
+- Cannot reuse last 5 passwords
+
+3. EMAIL ISSUES
+- Outlook not syncing: Check VPN connection first
+- Can't send emails: Verify email size <25MB
+- Spam folder: Check weekly for false positives
+- Out of storage: Archive old emails to local PST
+
+4. WIFI ACCESS
+- Office WiFi: CompanyNet (password changes monthly)
+- Guest WiFi: CompanyGuest (password: Welcome2025)
+- Conference rooms: Hardwired ethernet available
+
+5. SOFTWARE INSTALLATION
+- Pre-approved software: Available in Software Center
+- Custom software: Submit ticket with business justification
+- Approval time: 3-5 business days
+- Licenses: Managed by IT, do not purchase independently
+
+6. HARDWARE ISSUES
+Laptop problems:
+- Won't turn on: Hold power button 30 seconds, try again
+- Slow performance: Restart weekly, close unused applications
+- Overheating: Ensure vents are clear, use laptop cooling pad
+
+Peripheral issues:
+- Monitor not detected: Check cable connection, restart computer
+- Keyboard/mouse: Try different USB port, replace batteries
+
+7. PRINTER ACCESS
+- Network printers: Auto-configured on domain-joined computers
+- Print queue stuck: Restart print spooler service
+- Mobile printing: Use PrinterOn app with employee ID
+
+8. SECURITY BEST PRACTICES
+- Lock computer when away (Windows+L)
+- Never share passwords
+- Report phishing emails to security@company.com
+- Use password manager (LastPass provided)
+- Enable MFA on all accounts
+
+SUPPORT CONTACT METHODS:
+- Phone: Ext. 5000 (8 AM - 6 PM)
+- Email: it@company.com
+- Ticket portal: support.company.com
+- Emergency after hours: +1-555-IT-URGENT
+
+SLA Response Times:
+- Critical (system down): 1 hour
+- High (work impaired): 4 hours
+- Medium (inconvenience): 1 business day
+- Low (question): 3 business days
