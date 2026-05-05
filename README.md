@@ -126,6 +126,17 @@ A production-ready AI system that enables employees to query internal knowledge 
 
 ---
 
+## 📸 Demo
+
+### 🤖 Chat Interface
+![Chat UI](assets/chat_ui.png)
+
+### 📊 Analytics Dashboard
+![Analytics Overview](assets/analytics_overview.png)
+
+### 📈 Query Insights
+![Query Patterns](assets/query_patterns.png)
+
 ## 📂 Project Structure
 
 ```bash
